@@ -15,7 +15,6 @@ import torch.utils.data as data
 import numpy as np
 import argparse
 
-
 def str2bool(v):
     return v.lower() in ("yes", "true", "t", "1")
 
@@ -197,10 +196,12 @@ def train():
             update_vis_plot(iteration, loss_l.data[0], loss_c.data[0],
                             iter_plot, epoch_plot, 'append')
 
-        if iteration != 0 and iteration % 5000 == 0:
+        if iteration != 0 and iteration % 10 == 0:
             print('Saving state, iter:', iteration)
-            torch.save(ssd_net.state_dict(), 'weights/ssd300_COCO_' +
-                       repr(iteration) + '.pth')
+            torch.save(ssd_net.state_dict(), 'weights/mymodel.pth')
+            cp_file = 'cp weights/mymodel.pth /content/drive/My\ Drive/thelatest.pth'
+            os.system(cp_file)
+
     torch.save(ssd_net.state_dict(),
                args.save_folder + '' + args.dataset + '.pth')
 
