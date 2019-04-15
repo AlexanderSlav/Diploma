@@ -196,10 +196,16 @@ def train():
             update_vis_plot(iteration, loss_l.data[0], loss_c.data[0],
                             iter_plot, epoch_plot, 'append')
 
-        if iteration != 0 and iteration % 500 == 0:
+        if iteration != 0 and iteration % 20 == 0:
+		
+	    with open('iteration_number', mode='a')as f:
+		f.write('The last iteration was:' + str(iteration)+'\n')
             print('Saving state, iter:', iteration)
             torch.save(ssd_net.state_dict(), 'weights/mymodel.pth')
             cp_file = 'cp weights/mymodel.pth /content/drive/My\ Drive/thelatest.pth'
+	    if iteration != 20 :
+			rm_file = 'rm  /content/drive/My\ Drive/thelatest_iteration.txt'
+	    cp_file = 'cp iteration_number /content/drive/My\ Drive/thelatest_iteration.txt'
             os.system(cp_file)
 
     torch.save(ssd_net.state_dict(),
