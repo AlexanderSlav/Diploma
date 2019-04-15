@@ -199,7 +199,7 @@ def train():
 
         if iteration != 0 and iteration % 20 == 0:
 		
-	    with open('iteration_number', mode='a')as f:
+	    with open('iteration_number', mode='a') as f:
 		f.write('The last iteration was:' + str(iteration)+'\n')
             print('Saving state, iter:', iteration)
             torch.save(ssd_net.state_dict(), 'weights/mymodel.pth')
