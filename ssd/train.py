@@ -198,18 +198,18 @@ def train():
                             iter_plot, epoch_plot, 'append')
 
         if iteration != 0 and iteration % 20 == 0:
-		with open('iteration_number', mode='a') as f:
-	        	f.write('The last iteration was:' + str(iteration)+'\n')
-        	print('Saving state, iter:', iteration)
-        	torch.save(ssd_net.state_dict(), 'weights/mymodel.pth')
-        	cp_file = 'cp weights/mymodel.pth /content/drive/My\ Drive/thelatest.pth'
-		if iteration != 20 and os.path.isfile('/content/drive/My\ Drive/thelatest_iteration.txt'):
-	        	rm_file = 'rm  /content/drive/My\ Drive/thelatest_iteration.txt'
-			os.system(rm_file)
-		cp_file = 'cp iteration_number /content/drive/My\ Drive/thelatest_iteration.txt'
-        	os.system(cp_file)
-        torch.save(ssd_net.state_dict(),
-        	args.save_folder + '' + args.dataset + '.pth')
+            with open('iteration_number', mode='a') as f:
+                f.write('The last iteration was:' + str(iteration)+'\n')
+                print('Saving state, iter:', iteration)
+            torch.save(ssd_net.state_dict(), 'weights/mymodel.pth')
+            cp_file = 'cp weights/mymodel.pth /content/drive/My\ Drive/thelatest.pth'
+            if iteration != 20 and os.path.isfile('/content/drive/My\ Drive/thelatest_iteration.txt'):
+                rm_file = 'rm  /content/drive/My\ Drive/thelatest_iteration.txt'
+                os.system(rm_file)
+            cp_file = 'cp iteration_number /content/drive/My\ Drive/thelatest_iteration.txt'
+            os.system(cp_file)
+            torch.save(ssd_net.state_dict(),
+                    args.save_folder + '' + args.dataset + '.pth')
 
 
 def adjust_learning_rate(optimizer, gamma, step):
@@ -266,3 +266,4 @@ def update_vis_plot(iteration, loc, conf, window1, window2, update_type,
 
 if __name__ == '__main__':
     train()
+
