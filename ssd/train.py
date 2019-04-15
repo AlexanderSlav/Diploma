@@ -3,6 +3,7 @@ from utils.augmentations import SSDAugmentation
 from layers.modules import MultiBoxLoss
 from ssd import build_ssd
 import os
+import os.path
 import sys
 import time
 import torch
@@ -203,10 +204,13 @@ def train():
             print('Saving state, iter:', iteration)
             torch.save(ssd_net.state_dict(), 'weights/mymodel.pth')
             cp_file = 'cp weights/mymodel.pth /content/drive/My\ Drive/thelatest.pth'
-	    if iteration != 20 :
+	    if iteration != 20 and os.path.isfile('/content/drive/My\ Drive/thelatest_iteration.txt'):
 			rm_file = 'rm  /content/drive/My\ Drive/thelatest_iteration.txt'
+			os.system(rm_file)
+	 
 	    cp_file = 'cp iteration_number /content/drive/My\ Drive/thelatest_iteration.txt'
             os.system(cp_file)
+	    
 
     torch.save(ssd_net.state_dict(),
                args.save_folder + '' + args.dataset + '.pth')
