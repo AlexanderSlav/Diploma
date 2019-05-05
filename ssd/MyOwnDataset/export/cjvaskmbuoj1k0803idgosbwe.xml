@@ -1,0 +1,26 @@
+<annotation>
+    <folder>tmprzls10ge</folder>
+    <filename>cjvaskmbuoj1k0803idgosbwe.jpeg</filename>
+    <path>/tmp/tmprzls10ge/cjvaskmbuoj1k0803idgosbwe.jpeg</path>
+    <source>
+        <database>Unknown</database>
+    </source>
+    <size>
+        <width>900</width>
+        <height>600</height>
+        <depth>3</depth>
+    </size>
+    <segmented>0</segmented>
+    <object>
+        <name>player</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+                <xmin>249</xmin>
+                <ymin>64</ymin>
+                <xmax>569</xmax>
+                <ymax>593</ymax>
+            </bndbox>
+        </object>
+    </annotation>
