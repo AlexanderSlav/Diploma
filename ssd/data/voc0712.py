@@ -118,8 +118,10 @@ class VOCDetection(data.Dataset):
 
     def pull_item(self, index):
         img_id = self.ids[index]
+        print(img_id)
 
         target = ET.parse(self._annopath % img_id).getroot()
+        print(target)
         img = cv2.imread(self._imgpath % img_id)
         height, width, channels = img.shape
 
