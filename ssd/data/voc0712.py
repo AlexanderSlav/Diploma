@@ -60,6 +60,8 @@ class VOCAnnotationTransform(object):
 
             pts = ['xmin', 'ymin', 'xmax', 'ymax']
             bndbox = []
+            if (int(bbox.find('xmin').text)-1) == (int(bbox.find('xmax').text)-1):
+                continue
             for i, pt in enumerate(pts):
                 cur_pt = int(bbox.find(pt).text) - 1
                 # scale height or width
