@@ -191,7 +191,7 @@ def train():
 	
 
         if iteration % 10 == 0:
-		print(loc_loss, conf_loss)
+            print(loc_loss, conf_loss)
             print('timer: %.4f sec.' % (t1 - t0))
             print('iter ' + repr(iteration) + ' || Loss: %.4f ||' % (loss.data), end=' ')
 
