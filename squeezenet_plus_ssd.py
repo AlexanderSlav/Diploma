@@ -1,4 +1,8 @@
-
+'''
+The squeezenet classifies whether the image is a close-up or not.
+The next step is send the image to ssd input trained on the dataset with the close-up or not close-up images
+depending on the output of the previous net.
+'''
 from __future__ import print_function
 import sys
 import os
