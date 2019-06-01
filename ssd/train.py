@@ -29,7 +29,7 @@ parser.add_argument('--dataset_root', default=VOC_ROOT,
                     help='Dataset root directory path')
 parser.add_argument('--basenet', default='vgg16_reducedfc.pth',
                     help='Pretrained base model')
-parser.add_argument('--batch_size', default=16, type=int,
+parser.add_argument('--batch_size', default=4, type=int,
                     help='Batch size for training')
 parser.add_argument('--resume', default=None, type=str,
                     help='Checkpoint state_dict file to resume training from')
@@ -39,7 +39,7 @@ parser.add_argument('--num_workers', default=4, type=int,
                     help='Number of workers used in dataloading')
 parser.add_argument('--cuda', default=True, type=str2bool,
                     help='Use CUDA to train model')
-parser.add_argument('--lr', '--learning-rate', default=1e-3, type=float,
+parser.add_argument('--lr', '--learning-rate', default=1e-5, type=float,
                     help='initial learning rate')
 parser.add_argument('--momentum', default=0.9, type=float,
                     help='Momentum value for optim')
@@ -204,7 +204,7 @@ def train():
                 f.write('The last iteration was:' + str(iteration)+'\n')
                 print('Saving state, iter:', iteration)
             torch.save(ssd_net.state_dict(), 'weights/mymodel.pth')
-            cp_file = 'cp weights/mymodel.pth /content/drive/My\ Drive/thelatest_batch_16_lr1e-3.pth'
+            cp_file = 'cp weights/mymodel.pth /content/drive/My\ Drive/thelatest_batch_4_lr1e-5.pth'
             os.system(cp_file)
             if iteration != 500 and os.path.isfile('/content/drive/My\ Drive/thelatest_iteration.txt'):
                 rm_file = 'rm  /content/drive/My\ Drive/thelatest_iteration.txt'
