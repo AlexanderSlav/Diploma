@@ -204,7 +204,7 @@ def train():
                 f.write('The last iteration was:' + str(iteration)+'\n')
                 print('Saving state, iter:', iteration)
             torch.save(ssd_net.state_dict(), 'weights/mymodel.pth')
-            cp_file = 'cp weights/mymodel.pth /content/drive/My\ Drive/thelatest_big+small_batch_4_lr1e-4.pth'
+            cp_file = 'cp weights/mymodel.pth /content/drive/My\ Drive/thelatest_small_batch_4_lr1e-4.pth'
             os.system(cp_file)
             if iteration != 500 and os.path.isfile('/content/drive/My\ Drive/thelatest_iteration.txt'):
                 rm_file = 'rm  /content/drive/My\ Drive/thelatest_iteration.txt'
