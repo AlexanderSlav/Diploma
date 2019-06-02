@@ -39,7 +39,7 @@ parser.add_argument('--num_workers', default=4, type=int,
                     help='Number of workers used in dataloading')
 parser.add_argument('--cuda', default=True, type=str2bool,
                     help='Use CUDA to train model')
-parser.add_argument('--lr', '--learning-rate', default=1e-5, type=float,
+parser.add_argument('--lr', '--learning-rate', default=1e-4, type=float,
                     help='initial learning rate')
 parser.add_argument('--momentum', default=0.9, type=float,
                     help='Momentum value for optim')
@@ -204,7 +204,7 @@ def train():
                 f.write('The last iteration was:' + str(iteration)+'\n')
                 print('Saving state, iter:', iteration)
             torch.save(ssd_net.state_dict(), 'weights/mymodel.pth')
-            cp_file = 'cp weights/mymodel.pth /content/drive/My\ Drive/thelatest_batch_4_lr1e-5.pth'
+            cp_file = 'cp weights/mymodel.pth /content/drive/My\ Drive/thelatest_big+small_batch_4_lr1e-4.pth'
             os.system(cp_file)
             if iteration != 500 and os.path.isfile('/content/drive/My\ Drive/thelatest_iteration.txt'):
                 rm_file = 'rm  /content/drive/My\ Drive/thelatest_iteration.txt'
